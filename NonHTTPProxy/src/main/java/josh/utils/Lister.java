@@ -48,7 +48,7 @@ public class Lister implements Runnable{
 	
 		    PacketListener listener = new PacketListener() {
 				@Override
-				public void gotPacket(Packet packet) {
+				public void gotPacket(PcapPacket packet) {
 					TcpPacket tcp = packet.get(TcpPacket.class);
 					IpV4Packet ip = packet.get(IpV4Packet.class);
 					if(tcp.getHeader().getSyn() && !tcp.getHeader().getAck() && !ip.getHeader().getSrcAddr().toString().equals("/"+IP)){
